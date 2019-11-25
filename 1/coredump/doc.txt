@@ -1,0 +1,26 @@
+1、查询core dump 是否关闭
+ulmit -c
+如果输出结果为0，说明core dump 是关闭的的，机当程序异常终止时，也不会生产core dump
+
+2、开启core dump
+ulmit -c unlmited
+
+
+3、修改coredump存放位置
+echo "/tmp/test/corefile-%e-%p-%t" >/proc/sys/kernel/core_pattern
+
+4、编译程序带-g
+gcc test.c -g -o test
+
+5、应用core dump 文件
+gdb ./test  /tmp/test/corefile-test-23905-1574589529 
+输出结果：
+。。。
+(gdb) r
+Starting program: /mnt/win/example/coredump/test 
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000555555554670 in main () at test.c:6
+6	    *null_ptr = 10;            //对空指针指向的内存区域写,会发生段错误
+
+

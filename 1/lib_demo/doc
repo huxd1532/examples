@@ -1,0 +1,22 @@
+1、无库编译
+gcc main.c calc.c -o main
+
+2、静态库
+把需要编译到静态库的.c 编译成.o
+gcc -c calc.c  -o calc.o
+
+用编译好的.o制作静态库
+ar -rc libCalcLib.a calc.o
+
+使用静态库编译最终可执行文件
+gcc main.c -o main -L ./ -lCalcLi
+
+
+3、动态库
+https://www.cnblogs.com/gx-303841541/p/3510699.html
+
+gcc -c -fPIC calc.c 
+gcc -shared -o libCalc.so calc.o
+sudo mv libCalc.so /usr/lib
+
+gcc main.c -lCalc -o main
