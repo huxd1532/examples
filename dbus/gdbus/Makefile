@@ -1,6 +1,3 @@
-all : gdbus_server gdbus_client 
-.PHONY : all
-
 #CC = gcc
 
 LIB_INC=$(shell pkg-config --cflags glib-2.0 gio-unix-2.0)
@@ -9,9 +6,8 @@ CFLAGS+=-g -Wall
 LIB = $(shell pkg-config --libs glib-2.0 gio-unix-2.0)
 LIBS+=$(LIB)
 
-
-#GDBUS_SERVER_SRC =  gdbus_server.c
-#GDBUS_CLIENT_SRC =  gdbus_client.c
+.PHONY : all
+all : gdbus_server gdbus_client 
 
 gdbus_server : gdbus_server.c Building.c 
 	gcc -o $@ $(CFLAGS) $(LIBS) $^
