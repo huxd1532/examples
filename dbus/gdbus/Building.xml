@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+  <interface name="com.deepin.Example2">
+    <method name="StrToInt">
+      <arg name="str"  type="s" direction="in"/>
+      <arg name="result" type="x" direction="out"/>
+    </method>
+
+    <signal name="CountChanged">
+      <arg name="count" type="x"/>
+    </signal>
+
+    <property name="Verbose" type="b" access="readwrite"/>
+  </interface>
+</node>
