@@ -1,9 +1,9 @@
 1、查询core dump 是否关闭
-ulmit -c
+ulimit -c
 如果输出结果为0，说明core dump 是关闭的的，机当程序异常终止时，也不会生产core dump
 
 2、开启core dump
-ulmit -c unlmited
+ulimit -c unlmited
 
 
 3、修改coredump存放位置
