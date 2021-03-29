@@ -1,0 +1,1 @@
+gcc -o example-0 example-0.c `pkg-config --cflags --libs libinput`
